@@ -6,71 +6,11 @@
 }
 
 :root {
-  --black: #121212;
-  --white: #f5f5f5;
+  --primary: #121212;
+  --secondary: #f5f5f5;
 }
 
 body {
-  background-color: var(--black);
-  color: var(--white);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
-}
-
-.spacer {
-  width: 100%;
-  max-width: 1136px;
-  margin-inline: auto;
-}
-
-.navbar {
-  top: 0;
-  width: 100%;
-  position: fixed;
-  padding: 12px 1rem;
-  background-color: rgba(18, 18, 18, 0.85);
-  backdrop-filter: blur(1rem);
-}
-
-.navbar .wrapper {
-  width: 100%;
-  max-width: 1200px;
-  margin-inline: auto;
-  display: flex;
-}
-
-.navbar .right {
-  margin: auto 0;
-  margin-left: auto;
-  display: flex;
-}
-
-.navbar .search {
-  transform: translateY(4px);
-}
-
-.hamburger-menu {
-  cursor: pointer;
-  margin-left: 36px;
-}
-
-.hamburger-menu .pill {
-  background-color: var(--white);
-  height: 3px;
-  width: 40px;
-  margin: 13px 0;
-  border-radius: 2rem;
-}
-
-@media (max-width: 1200px) {
-  .navbar .logo {
-    height: 64px;
-    width: 64px;
-  }
-
-  .navbar .hamburger-menu {
-    margin-left: 24px;
-  }
+  background-color: var(--primary);
+  color: var(--secondary);
 }
