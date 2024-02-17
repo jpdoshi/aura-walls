@@ -1,14 +1,30 @@
 import { Navbar } from "@/Components/Navbar";
+import "@/Styles/page.css";
 
 export default function Home() {
   return (
     <>
     <Navbar />
-    <section>
-      <img src="https://wallpapers-clan.com/wp-content/uploads/2024/02/fantastic-castle-clouds-blue-desktop-wallpaper-preview.jpg" style={{width: "100%"}} />
-      <img src="https://wallpapers-clan.com/wp-content/uploads/2024/02/fantastic-castle-clouds-blue-desktop-wallpaper-preview.jpg" style={{width: "100%"}} />
-      <img src="https://wallpapers-clan.com/wp-content/uploads/2024/02/fantastic-castle-clouds-blue-desktop-wallpaper-preview.jpg" style={{width: "100%"}} />
-    </section>
+    <div className="page">
+      <section id="top-walls">
+        <h1>LIT🔥WALLPAPERS</h1>
+        <button>SHOW ALL</button>
+      </section>
+      <section id="categories">
+        <h1>CATEGORIES</h1>
+      </section>
+      <section id="mobile">
+        <h1>MOBILE</h1>
+        <button>SHOW ALL</button>
+      </section>
+      <section id="desktop">
+        <h1>DESKTOP</h1>
+        <button>SHOW ALL</button>
+      </section>
+      <section id="about">
+        <h1>ABOUT</h1>
+      </section>
+    </div>
     </>
   );
 }

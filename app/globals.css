@@ -6,11 +6,29 @@
 }
 
 :root {
-  --primary: #121212;
-  --secondary: #f5f5f5;
+  --primary: #eceff1;
+  --secondary: #263238;
+  --blur-panel: rgba(236, 239, 241, 0.6);
 }
 
 body {
   background-color: var(--primary);
   color: var(--secondary);
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid var(--secondary);
+  font-weight: bold;
+  color: var(--secondary);
+  font-size: 18px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+button:hover {
+  color: var(--primary);
+  background-color: var(--secondary);
+  border-radius: 1.5rem;
 }

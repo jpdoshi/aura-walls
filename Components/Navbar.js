@@ -5,24 +5,13 @@ import '@/Styles/navbar.css'
 
 export const Navbar = () => {
   const menuHandler = () => {
-    let menuIcon = document.getElementById('menu-icon');
     let sideMenu = document.getElementById('side-menu').getElementsByClassName('wrapper')[0];
 
-    let pill1 = menuIcon.getElementsByClassName('pill')[0];
-    let pill2 = menuIcon.getElementsByClassName('pill')[1];
-
     if (sideMenu.style.opacity == '1') {
-      sideMenu.style.transform = 'scaleX(0)';
-      sideMenu.style.opacity = '0';
-
-      pill1.style.transform = 'rotate(0deg)';
-      pill2.style.transform = 'rotate(0deg)';
+      closeMenu();
     } else {
-      sideMenu.style.transform = 'scaleX(1)';
-      sideMenu.style.opacity = '1';
-
-      pill1.style.transform = 'translateY(7px) rotate(45deg)';
-      pill2.style.transform = 'translateY(-7px) rotate(-45deg)';
+      openMenu();
+      closeSearch();
     }
   }
 
@@ -30,18 +19,66 @@ export const Navbar = () => {
     let searchBar = document.getElementById('search-bar');
 
     if (searchBar.style.opacity == '1') {
-      searchBar.style.opacity = '0';
-      searchBar.style.transform = 'scaleX(0)';
+      closeSearch();
     } else {
-      searchBar.style.opacity = '1';
-      searchBar.style.transform = 'scaleX(1)';
+      openSearch();
+      closeMenu();
     }
   }
+
+  const openMenu = () => {
+    let sideMenu = document.getElementById('side-menu').getElementsByClassName('wrapper')[0];
+    let menuIcon = document.getElementById('menu-icon');
+
+    let pill1 = menuIcon.getElementsByClassName('pill')[0];
+    let pill2 = menuIcon.getElementsByClassName('pill')[1];
+
+    sideMenu.style.transform = 'scaleX(1)';
+    sideMenu.style.opacity = '1';
+    document.getElementById('side-menu').style.zIndex = '1';
+
+    pill1.style.transform = 'translateY(7px) rotate(45deg)';
+    pill2.style.transform = 'translateY(-7px) rotate(-45deg)';
+  }
+
+  const closeMenu = () => {
+    let sideMenu = document.getElementById('side-menu').getElementsByClassName('wrapper')[0];
+    let menuIcon = document.getElementById('menu-icon');
+
+    let pill1 = menuIcon.getElementsByClassName('pill')[0];
+    let pill2 = menuIcon.getElementsByClassName('pill')[1];
+
+    sideMenu.style.transform = 'scaleX(0)';
+    sideMenu.style.opacity = '0';
+    document.getElementById('side-menu').style.zIndex = '-1';
+
+    pill1.style.transform = 'rotate(0deg)';
+    pill2.style.transform = 'rotate(0deg)';
+  }
+
+  const openSearch = () => {
+    let searchBar = document.getElementById('search-bar');
+
+    searchBar.style.opacity = '1';
+    searchBar.style.transform = 'scaleX(1)';
+
+    document.getElementById('search-wrapper').style.zIndex = '1';
+    searchBar.focus();
+  }
+
+  const closeSearch = () => {
+    let searchBar = document.getElementById('search-bar');
+
+    searchBar.style.opacity = '0';
+    searchBar.style.transform = 'scaleX(0)';
+    document.getElementById('search-wrapper').style.zIndex = '-1';
+  }
+
   return (
     <>
       <div className='navbar'>
         <div className='wrapper'>
-          <Image src='/logo.png' alt='logo.png' width={52} height={52} />
+          <Image src='/logo.png' className='logo' alt='logo.png' width={104} height={52} onClick={() => {document.location.href = '/'}} />
           <div className='right'>
             <Image src='/search.svg' alt='search.svg' id='search' width={28} height={28} onClick={searchHandler} />
             <div id='menu-icon' onClick={menuHandler}>
@@ -55,18 +92,19 @@ export const Navbar = () => {
         <div className='wrapper'>
           <h2>NAVIGATION</h2>
           <ul>
-            <li><a href='/'>HOME</a></li>
+            <li><a href='/#top-walls'>TOP WALLS</a></li>
             <li><a href='/#categories'>CATEGORIES</a></li>
             <li><a href='/#mobile'>MOBILE</a></li>
             <li><a href='/#desktop'>DESKTOP</a></li>
+            <li><a href='https://github.com/jpdoshi/aura-walls'>GITHUB</a></li>
             <li><a href='/#about'>ABOUT</a></li>
           </ul>
-          <hr color='#ddd' style={{ margin: '32px 12px' }} />
+          <hr color='#263238' style={{ height: '2px', margin: '32px 12px' }} />
           <h2>TAGS</h2>
         </div>
       </div>
-      <form className='search-wrapper'>
-        <input type='text' id='search-bar' placeholder='SEARCH LIT WALLPAPERS' />
+      <form action='/search' method='GET' id='search-wrapper'>
+        <input type='text' name='q' id='search-bar' placeholder='SEARCH WALLPAPERS' />
       </form>
     </>
   )
