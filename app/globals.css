@@ -8,7 +8,7 @@
 :root {
   --primary: #eceff1;
   --secondary: #263238;
-  --blur-panel: rgba(236, 239, 241, 0.6);
+  --blur-panel: rgba(236, 239, 241, 0.5);
 }
 
 body {

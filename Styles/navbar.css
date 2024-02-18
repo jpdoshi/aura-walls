@@ -6,6 +6,7 @@
   background-color: var(--blur-panel);
   backdrop-filter: blur(1rem);
   border-bottom: 2px solid var(--secondary);
+  z-index: 10;
 }
 
 .navbar .wrapper {
@@ -31,7 +32,7 @@
 
 #menu-icon .pill {
   background-color: var(--secondary);
-  height: 4px;
+  height: 3px;
   width: 32px;
   margin: 10px 0;
   transition: 0.5s;
@@ -40,7 +41,7 @@
 #side-menu {
   position: fixed;
   left: 0;
-  top: 84px;
+  top: 92px;
   width: 100%;
   z-index: -1;
 }
@@ -50,7 +51,7 @@
   width: 300px;
   margin-inline: auto;
   text-align: center;
-  padding: 32px;
+  padding: 64px 0;
   background-color: var(--blur-panel);
   backdrop-filter: blur(1rem);
   transition: 0.25s;
@@ -72,7 +73,7 @@
 
 #search-wrapper {
   position: fixed;
-  top: 84px;
+  top: 92px;
   width: 100%;
   padding-inline: 1rem;
   z-index: -1;
@@ -93,9 +94,10 @@
   margin-inline: auto;
   display: block;
   font-size: larger;
+  font-weight: bold;
   opacity: 0;
   transform: scaleX(0);
   transition: 0.25s;
 }
 
-#search-bar::placeholder { color: #90a4ae; }
+#search-bar::placeholder { color: #546e7a; }

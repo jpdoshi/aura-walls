@@ -12,8 +12,49 @@ h1 {
     margin-bottom: 2rem;
 }
 
+.img-deck {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img-container {
+    position: relative;
+    height: auto;
+    width: 25%;
+    transition: 0.5s;
+}
+
+.img-container:hover {
+    filter: saturate(0);
+}
+
+.img-container img {
+    width: 100%;
+    display: block;
+}
+
+.img-container h3 {
+    font-size: 32px;
+    line-height: 36px;
+    display: none;
+}
+
+.img-container:hover h3 {
+    display: block;
+    color: white;
+    text-shadow: 0px 0px 12px rgba(18, 18, 18, 0.6);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 @media (max-width: 900px) {
     h1 {
         font-size: 32px;
+    }
+
+    .img-container {
+        width: 100%;
     }
 }
