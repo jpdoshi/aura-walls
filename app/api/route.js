@@ -2,6 +2,7 @@ import sqlite3 from "sqlite3";
 import { open } from "sqlite";
 
 let db = null;
+let walls = null;
 
 export async function GET(req, res) {
   if (!db) {
@@ -11,9 +12,9 @@ export async function GET(req, res) {
     });
   }
 
-  const todos = await db.all("SELECT * FROM WALLPAPER");
+  const walls = await db.all("SELECT * FROM WALLPAPER");
 
-  return new Response(JSON.stringify(todos), {
+  return new Response(JSON.stringify(walls), {
     headers: { "content-type": "application/json" },
     status: 200,
   });
