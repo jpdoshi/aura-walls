@@ -1,6 +1,8 @@
 'use client'
 
 import { Navbar } from "@/Components/Navbar";
+import { Preview } from "@/Components/Preview";
+
 import "@/Styles/page.css";
 
 import { useState, useEffect } from "react";
@@ -8,6 +10,11 @@ import { useState, useEffect } from "react";
 const page = () => {
     const [walls, setWalls] = useState([]);
     const [mode, setMode] = useState('L');
+
+    const [showPreview, setShowPreview] = useState(false);
+    const [previewTitle, setPreviewTitle] = useState(null);
+    const [previewUrl, setPreviewUrl] = useState(null);
+    const [previewTags, setPreviewTags] = useState([]);
 
     useEffect(() => {
         const url = new URL(window.location.href);
@@ -31,13 +38,20 @@ const page = () => {
         });
     }, []);
 
+    let setPreviewParams = (title, url, tags) => {
+        setShowPreview(true);
+        setPreviewTitle(title);
+        setPreviewUrl(url);
+        setPreviewTags(tags.split("|"));
+    }
+
     return (
         <>
             <Navbar />
             <div className="page">
                 <div className="img-deck">
                 {walls.map((wall) => (
-                    <div className="img-container" key={wall.ID}>
+                    <div className="img-container" onClick={() => { setPreviewParams(wall.TITLE, wall.URL, wall.TAGS); }} key={wall.ID}>
                         <h3>{wall.TITLE}</h3>
                         {
                             mode == 'P' ? 
@@ -47,6 +61,7 @@ const page = () => {
                     </div>
                 ))}
                 </div>
+                { showPreview ? <Preview title={previewTitle} src={previewUrl} tags={previewTags} show={setShowPreview} /> : null }
             </div>
         </>
     )
