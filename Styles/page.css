@@ -61,7 +61,6 @@ h1 {
     top: 88px;
     left: 50%;
     z-index: 1;
-    max-width: 90%;
     border: 2px solid var(--secondary);
     background-color: var(--blur-panel);
     backdrop-filter: blur(1rem);
@@ -95,7 +94,7 @@ h1 {
 
 .preview-container span {
     padding: 4px 15px;
-    margin-inline: 4px;
+    margin: 6px;
     border-radius: 1.5rem;
     border: 2px solid var(--secondary);
 }
@@ -181,7 +180,7 @@ h1 {
     border: 2px solid var(--secondary);
     border-radius: 1.5rem;
     padding: 4px 12px;
-    margin-inline: 6px;
+    margin: 6px;
 }
 
 #tags ul li a:hover {
@@ -205,6 +204,8 @@ h1 {
 
     .img-deck {
         grid-template-columns: repeat(2, 1fr);
+        grid-gap: 0.5rem;
+        padding-inline: 0.25rem;
     }
 
     .preview-container { width: 90%; }
@@ -215,5 +216,14 @@ h1 {
     .about-container img {
         width: 300px;
         margin-bottom: 1.5rem;
+    }
+
+    #desktop .img-deck {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .img-container h3 {
+        font-size: 18px;
+        line-height: 18px;
     }
 }

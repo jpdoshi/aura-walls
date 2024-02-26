@@ -10,6 +10,7 @@
 }
 
 .navbar .wrapper {
+  height: 48px;
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
@@ -28,8 +29,7 @@
 
 .navbar #search,
 #menu-icon {
-  margin: auto 0;
-  margin-left: 32px;
+  margin: auto 16px;
   cursor: pointer;
 }
 

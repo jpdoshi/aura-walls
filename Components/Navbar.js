@@ -78,7 +78,7 @@ export const Navbar = () => {
     <>
       <div className='navbar'>
         <div className='wrapper'>
-          <Image src='/logo.png' className='logo' alt='logo.png' width={182} height={48} onClick={() => {document.location.href = '/'}} />
+          <Image src='/logo.png' className='logo' alt='logo.png' width={84} height={42} onClick={() => {document.location.href = '/'}} />
           <div className='right'>
             <Image src='/search.svg' alt='search.svg' id='search' width={36} height={36} onClick={searchHandler} />
             <div id='menu-icon' onClick={menuHandler}>
