@@ -54,7 +54,7 @@ const page = () => {
             wall.ORIENTATION == 'P' ?
             (<div className="img-container" onClick={() => { setPreviewParams(wall.TITLE, wall.URL, wall.TAGS); }} key={wall.ID}>
               <h3>{wall.TITLE}</h3>
-              <img src={wall.URL} style={{aspectRatio: '9/20'}} />
+              <img src={wall.URL} style={{aspectRatio: '9/20'}} loading="lazy" />
             </div>) : null
           ))}
         </div>
@@ -63,7 +63,7 @@ const page = () => {
             wall.ORIENTATION == 'L' ?
             (<div className="img-container" onClick={() => { setPreviewParams(wall.TITLE, wall.URL, wall.TAGS); }} key={wall.ID}>
               <h3>{wall.TITLE}</h3>
-              <img src={wall.URL} style={{aspectRatio: '16/9'}} />
+              <img src={wall.URL} style={{aspectRatio: '16/9'}} loading="lazy" />
             </div>) : null
           ))}
         </div></>) : <p style={{opacity: '0.5', fontSize: 'large'}}>No Result Found</p> }

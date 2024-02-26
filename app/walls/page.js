@@ -55,8 +55,8 @@ const page = () => {
                         <h3>{wall.TITLE}</h3>
                         {
                             mode == 'P' ? 
-                            (<img src={wall.URL} style={{ aspectRatio: '9/20' }} />) :
-                            (<img src={wall.URL} style={{ aspectRatio: '16/9' }} />)
+                            (<img src={wall.URL} style={{ aspectRatio: '9/20' }} loading="lazy" />) :
+                            (<img src={wall.URL} style={{ aspectRatio: '16/9' }} loading="lazy" />)
                         }
                     </div>
                 ))}

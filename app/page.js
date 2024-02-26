@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 
 import { Navbar } from "@/Components/Navbar";
+import { Footer } from "@/Components/Footer";
 import { Preview } from "@/Components/Preview";
 
 import "@/Styles/page.css";
@@ -56,7 +57,7 @@ export default function Home() {
         {phoneWalls.map((wall) => (
           <div className="img-container" onClick={() => { setPreviewParams(wall.TITLE, wall.URL, wall.TAGS); }} key={wall.ID}>
               <h3>{wall.TITLE}</h3>
-              <img src={wall.URL} style={{ aspectRatio: '9/20' }} />
+              <img src={wall.URL} style={{ aspectRatio: '9/20' }} loading="lazy" />
           </div>
         ))}
         </div>
@@ -66,6 +67,16 @@ export default function Home() {
       </section>
       <section id="tags">
         <h1>TAGS</h1>
+        <ul>
+          <li><a href="/search?q=art">ART</a></li>
+          <li><a href="/search?q=car">CAR</a></li>
+          <li><a href="/search?q=comics">COMICS</a></li>
+          <li><a href="/search?q=anime">ANIME</a></li>
+          <li><a href="/search?q=movie">MOVIES & SHOWS</a></li>
+          <li><a href="/search?q=game">VIDEO GAME</a></li>
+          <li><a href="/search?q=aesthetic">AESTHETIC</a></li>
+          <li><a href="/search?q=iphone">IPHONE</a></li>
+        </ul>
       </section>
       <section id="desktop">
         <h1>DESKTOP</h1>
@@ -73,7 +84,7 @@ export default function Home() {
         {desktopWalls.map((wall) => (
           <div className="img-container" onClick={() => { setPreviewParams(wall.TITLE, wall.URL, wall.TAGS); }} key={wall.ID}>
               <h3>{wall.TITLE}</h3>
-              <img src={wall.URL} style={{ aspectRatio: '16/9' }} />
+              <img src={wall.URL} style={{ aspectRatio: '16/9' }} loading="lazy" />
           </div>
         ))}
         </div>
@@ -87,7 +98,7 @@ export default function Home() {
         {phoneWalls.map((wall) => (
           <div className="img-container" onClick={() => { setPreviewParams(wall.TITLE, wall.URL, wall.TAGS); }} key={wall.ID}>
               <h3>{wall.TITLE}</h3>
-              <img src={wall.URL} style={{ aspectRatio: '9/20' }} />
+              <img src={wall.URL} style={{ aspectRatio: '9/20' }} loading="lazy" />
           </div>
         ))}
         </div>
@@ -99,11 +110,11 @@ export default function Home() {
         <h1>ABOUT</h1>
         <div className="about-container">
           <div className="left">
-            <a href="https://github.com/jpdoshi"><img src="https://avatars.githubusercontent.com/u/122164427" /></a>
+            <a href="https://github.com/jpdoshi"><img src="https://avatars.githubusercontent.com/u/122164427" loading="lazy" /></a>
           </div>
           <div className="right">
             <h2>Jainam P. Doshi</h2>
-            <p>This Project is made using NextJS and SQLite. Inspired by, and images taken from <a href="https://wallpapers-clan.com">Wallpapers Clan</a>.
+            <p>This Project is made using NextJS and SQLite. Inspired by, and images taken from <a href="https://wallpapers-clan.com" style={{color: 'var(--secondary)'}}>Wallpapers Clan</a>.
             This project is meant for educational purposes and licensed under MIT license, therefore copying or distribution is strictly prohibited.</p>
             <a href="https://github.com/jpdoshi">
             <button>VISIT GITHUB</button>
@@ -113,6 +124,7 @@ export default function Home() {
       </section>
       { showPreview ? <Preview title={previewTitle} src={previewUrl} tags={previewTags} show={setShowPreview} /> : null }
     </div>
+    <Footer />
     </>
   );
 }

@@ -1,7 +1,7 @@
-import { Poppins } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({ subsets: ["latin"], weight: '600' });
+const montserrat = Montserrat({ subsets: ["latin"], weight: '700' });
 
 export const metadata = {
   title: "Aura Walls - High Quality Lit Wallpapers",
@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={montserrat.className}>{children}</body>
     </html>
   );
 }
